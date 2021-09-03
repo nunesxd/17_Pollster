@@ -5,7 +5,7 @@ from .models import Question, Choice
 # Podemos trocar o cabeçalho de nosso site 'admin', que por padrão fica como 'Django Administration':
 admin.site.site_header = "Pollster Admin"
 admin.site.site_title = "Pollster Admin"
-admin.site.index_title = "Welcome to the Pollster Admin area"
+admin.site.index_title = "Welcome to the Pollster Admin area !"
 
 # A estrategia com as classes abaixo, é criar um vínculo entre as questões e as opções (que não existe se a 'registrassemos' na página diretamente).
 
