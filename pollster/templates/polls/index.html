@@ -1,24 +1,22 @@
 <!--Usamos a estratégia de separar todos os templates em uma pasta, seprada de nossos apps. Uma outra seria criar uma pasta templates para cada app, mas isso pode ficar confuso com o tempo-->
 
 {% extends 'base.html' %}
-
 {% block content %}
 
 <h1 class="text-center mb-3">Poll Questions</h1>
 
 <!--Checa se existem questões em nosso banco, essa lista foi gerada e disponibilizada na view do app polls-->
 {% if latest_question_list %}
-
     {% for question in latest_question_list %}
-
         <div class="card mb-3">
             <div class="card-body">
                 <p class="lead">{{ question.question_text }}</p>
+                <!--Criamos um link com o app 'polls', onde iremos mostrar a view 'details' e 'results', com o id especifico da questão informada-->
+                <a href="{% url 'polls:details' question.id %}" class="btn btn-primary btn-sm">Vote Now</a>
+                <a href="{% url 'polls:results' question.id %}" class="btn btn-secondary btn-sm">Results</a>
             </div>
         </div>
-        
     {% endfor %}
-
 {% else %}
     <p>No polls available</p>
 {% endif %}
